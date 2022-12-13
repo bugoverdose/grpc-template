@@ -1,0 +1,39 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.2'
+    id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+    id 'java'
+}
+
+group = 'bugoverdose'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'net.devh:grpc-server-spring-boot-starter:2.14.0.RELEASE'
+    implementation files('libs/grpc-lib-1.0-SNAPSHOT.jar')
+    // implementation 'net.devh:grpc-spring-boot-starter:2.14.0.RELEASE' // Server + Client
+
+    // implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    // implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // compileOnly 'org.projectlombok:lombok'
+    // runtimeOnly 'com.h2database:h2'
+    // annotationProcessor 'org.projectlombok:lombok'
+
+    // testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // testImplementation 'io.rest-assured:rest-assured:4.4.0'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
